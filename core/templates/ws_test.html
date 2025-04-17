@@ -1,0 +1,16 @@
+<!-- templates/ws_test.html -->
+<!DOCTYPE html>
+<html>
+<head><title>WebSocket Test</title></head>
+<body>
+  <h1>WebSocket Test Page</h1>
+  <script>
+    const socket = new WebSocket('ws://' + window.location.host + '/ws/notifications/');
+
+    socket.onmessage = function(event) {
+      const data = JSON.parse(event.data);
+      alert("Notification: " + data.message);
+    };
+  </script>
+</body>
+</html>
